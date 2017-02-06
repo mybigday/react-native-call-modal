@@ -103,11 +103,13 @@ const titleYesNoRender = ({ title, message, okText, cancelText, onOk, onCancel, 
         !!message && <Item text={message} />
       }
       {children}
-      <Item
-        last={!onCancel}
-        onPress={onOk}
-        text={okText}
-      />
+      {
+        !!onOk && <Item
+          last={!onCancel}
+          onPress={onOk}
+          text={okText}
+        />
+      }
       {
         !!onCancel && <Item
           last
@@ -228,9 +230,10 @@ class CheckBoxPrompt extends Component {
     return (
       <View>
         {
-          _.map(this.state.selectionList, ({ key, value, selected }) => (
+          _.map(this.state.selectionList, ({ key, value, selected }, index) => (
             <Item
               key={key}
+              last={this.props.autoSubmit && index === this.state.selectionList.length - 1}
               onPress={() => {
                 let newSelectionList;
                 if (this.props.multiple) {
@@ -289,15 +292,26 @@ exports.prompt = async function(args) {
         }
         handleValueChange = (value) => {
           this.setState({value});
+          if (input.autoSubmit) {
+            this.submitValue(value);
+          }
         };
-        handleSubmit = () => {
-          this.props.requestCloseModal();
-          resolve(this.state.value);
+        handleSubmit = (value) => {
+          this.submitValue(this.state.value);
         };
         handleCancel = () => {
           this.props.requestCloseModal();
           resolve();
-        }
+        };
+        submitValue = (value) => {
+          this.props.requestCloseModal();
+          let result = value;
+          if (!_.isString(result)) {
+            result = _.filter(result, ['selected', true]);
+            result = _.map(result, 'key').join(',');
+          }
+          resolve(result);
+        };
         render() {
           let content;
           switch(input.inputType){
@@ -321,6 +335,7 @@ exports.prompt = async function(args) {
             case 'select':
               content = (
                 <CheckBoxPrompt
+                  autoSubmit={input.autoSubmit}
                   value={input.value}
                   onChangeValue={this.handleValueChange}
                 />
@@ -330,8 +345,8 @@ exports.prompt = async function(args) {
           return (
             <TitleYesNo
               {...input}
-              onOk={this.handleSubmit}
-              onCancel={this.handleCancel}
+              onOk={!input.autoSubmit && this.handleSubmit}
+              onCancel={!input.autoSubmit && this.handleCancel}
             >
               {content}
             </TitleYesNo>

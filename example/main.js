@@ -64,7 +64,28 @@ class App extends React.Component {
           }]
         });
         this.setState({
-          message: `Prompt result: ${JSON.stringify(result)}`,
+          message: `Prompt result: ${result}`,
+        });
+      }
+    }, {
+      title: 'Prompt select input (Auto Submit)',
+      icon: { type: 'font-awesome', name: 'intersex' },
+      handlePress: async () => {
+        const result = await CallModalUtil.prompt({
+          title: 'Gender',
+          message: 'If you select you can\'t change this again.',
+          autoSubmit: true,
+          inputType: 'select',
+          value: [{
+            key: 'women',
+            value: 'Women'
+          }, {
+            key: 'man',
+            value: 'Man'
+          }]
+        });
+        this.setState({
+          message: `Prompt result: ${result}`,
         });
       }
     }, {
@@ -89,7 +110,7 @@ class App extends React.Component {
           }]
         });
         this.setState({
-          message: `Prompt result: ${JSON.stringify(result)}`,
+          message: `Prompt result: ${result}`,
         });
       }
     }, {
