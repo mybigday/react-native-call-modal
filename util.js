@@ -311,6 +311,12 @@ exports.prompt = async function(args) {
             result = _.map(result, 'key').join(',');
           }
           resolve(result);
+          if (input.inputType === 'action') {
+            const value = _.find(input.value, ['key', result]);
+            if (_.isFunction(value.onSelect)) {
+              value.onSelect();
+            }
+          }
         };
         render() {
           let content;
@@ -341,6 +347,14 @@ exports.prompt = async function(args) {
                 />
               );
               break;
+            case 'action':
+              content = (
+                <CheckBoxPrompt
+                  autoSubmit={input.autoSubmit}
+                  value={input.value}
+                  onChangeValue={this.handleValueChange}
+                />
+              );
           }
           return (
             <TitleYesNo
