@@ -114,6 +114,38 @@ class App extends React.Component {
         });
       }
     }, {
+      title: 'Prompt acion',
+      icon: { type: 'font-awesome', name: 'bicycle' },
+      handlePress: async () => {
+        const result = await CallModalUtil.prompt({
+          title: 'Say something',
+          autoSubmit: true,
+          inputType: 'action',
+          value: [{
+            key: 'hello',
+            value: 'Say Hello',
+            onSelect: () => {
+              console.log('Hello');
+            },
+          }, {
+            key: 'hi',
+            value: 'Say Hi',
+            onSelect: () => {
+              console.log('Hi');
+            },
+          }, {
+            key: 'hey',
+            value: 'Say Hey',
+            onSelect: () => {
+              console.log('Hey');
+            },
+          }]
+        });
+        this.setState({
+          message: `Prompt result: ${result}`,
+        });
+      }
+    }, {
       title: 'Custom modal',
       icon: { type: 'font-awesome', name: 'certificate' },
       handlePress: async () => {

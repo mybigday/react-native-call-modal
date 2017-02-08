@@ -87,15 +87,17 @@ First argument can be a `string` or `object`, you can give an object to get more
 | cancelText  | string | Text show on cancel button       | "CANCEL" |
 
 #### Prompt
-| Name        | Type         | Description                          | Default  |
-|-------------|--------------|--------------------------------------|----------|
-| title       | string       | Title text with bold font weight     |          |
-| message     | string       | Body text                            |          |
-| okText      | string       | Text show on confirm button          | "OK"     |
-| cancelText  | string       | Text show on cancel button           | "CANCEL" |
-| autoSubmit  | bool         | When select use to disable OK button | false    |
-| inputType   | string       | One of `text`, `select`, `checkbox`  | "text"   |
-| value       | string/array | Default value of prompt, when `inputType` is `text` this must be a string value, if type is `select` or `checkbox` is't must be an array of `{ key: 'key', value: 'value'}`  | "" / []  |
+| Name                     | Type   | Description                                                                       | Default  |
+|--------------------------|--------|-----------------------------------------------------------------------------------|----------|
+| title                    | string | Title text with bold font weight                                                  |          |
+| message                  | string | Body text                                                                         |          |
+| okText                   | string | Text show on confirm button                                                       | "OK"     |
+| cancelText               | string | Text show on cancel button                                                        | "CANCEL" |
+| autoSubmit               | bool   | When select use to disable OK button                                              | false    |
+| inputType                | string | One of `text`, `select`, `checkbox`, `action`                                     | "text"   |
+| value (text)             | string | Default value of prompt, this must be a string value                              | ""       |
+| value (select, checkbox) | string | Default value of prompt, this must be an array of `{ key: , value: }`             | []       |
+| value (action)           | string | Default value of prompt, this must be an array of `{ key: , value: , onSelect: }` | []       |
 
 ## Customize Modal Usage
 If you want customize all your modal and just want we open/close the modal for you. You can use `CallModal.show()` to get things done.
