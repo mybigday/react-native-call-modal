@@ -18,7 +18,5 @@
   ],
   "author": "Pepper Yen <pepper.yen@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  }
+  "dependencies": {}
 }

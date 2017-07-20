@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import {
   Modal,
@@ -56,7 +55,7 @@ exports.connectCallModal = function(WrappedComponent) {
 
     show = async (property) => {
       return new Promise((resolve, reject) => {
-        if(!_.isFunction(property.renderFunction)) {
+        if(typeof property.renderFunction !== 'function') {
           return reject(new Error('Require property: renderFunction'));
         }
         this.setState({
