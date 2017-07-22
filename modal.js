@@ -25,7 +25,7 @@ exports.connectCallModal = function(WrappedComponent) {
       animationType: 'slide',
       visible: false,
       onModalClose: () => {},
-      content: () => {},
+      content: () => null,
       closeWhenPressBackground: false,
       backgroundColor: 'rgba(0, 0, 0, 0.3)',
     }
