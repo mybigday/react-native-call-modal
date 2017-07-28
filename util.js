@@ -142,7 +142,7 @@ const defaultArgs = (args) => {
   return result;
 }
 
-exports.alert = async function(args) {
+export const alert = async function(args) {
   const TitleYesNo = titleYesNoRender;
   return await CallModal.show({
     renderFunction: (props) => (
@@ -154,7 +154,7 @@ exports.alert = async function(args) {
   });
 }
 
-exports.confirm = async function(args) {
+export const confirm = async function(args) {
   return new Promise((resolve, reject) => {
     const TitleYesNo = titleYesNoRender;
     CallModal.show({
@@ -278,7 +278,7 @@ class CheckBoxPrompt extends Component {
   }
 }
 
-exports.prompt = async function(args) {
+export const prompt = async function(args) {
   return new Promise((resolve, reject) => {
     const TitleYesNo = titleYesNoRender;
     const input = defaultArgs(args);
@@ -370,5 +370,3 @@ exports.prompt = async function(args) {
     });
   });
 }
-
-module.exports = exports;

@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
 });
 
 const api = {}
-exports.CallModal = api;
-exports.connectCallModal = function(WrappedComponent) {
+export const CallModal = api;
+export const connectCallModal = function(WrappedComponent) {
   return class extends Component {
     state = {
       animationType: 'slide',
@@ -98,5 +98,3 @@ exports.connectCallModal = function(WrappedComponent) {
     }
   }
 }
-
-module.exports = exports;

@@ -1,7 +1,8 @@
-import Modal from './modal';
+import { CallModal, connectCallModal } from './modal';
 import CallModalUtil from './util';
 
-module.exports = {
-  ...Modal,
+export {
+  CallModal,
+  connectCallModal,
   CallModalUtil,
 };
