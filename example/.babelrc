@@ -1,5 +1,6 @@
 {
-  "presets": ["babel-preset-exponent"],
+  "presets": ["exponent"],
+  "plugins": ["lodash"],
   "env": {
     "development": {
       "plugins": ["transform-react-jsx-source"]
