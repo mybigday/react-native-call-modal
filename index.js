@@ -1,5 +1,5 @@
 import { CallModal, connectCallModal } from './modal';
-import CallModalUtil from './util';
+import * as CallModalUtil from './util';
 
 export {
   CallModal,
