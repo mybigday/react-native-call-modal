@@ -1,6 +1,6 @@
 {
   "name": "@fugood/react-native-call-modal",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "This module let you use api call to open Modal and provide some basic panel most commonly.",
   "main": "index.js",
   "scripts": {
