@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+const supportedOrientations = ['portrait', 'landscape'];
 
 const api = {}
 export const CallModal = api;
@@ -79,6 +80,7 @@ export const connectCallModal = function(WrappedComponent) {
             transparent
             animationType={this.state.animationType}
             visible={this.state.visible}
+            supportedOrientations={supportedOrientations}
             onRequestClose={() => {}}
           >
             <TouchableWithoutFeedback onPress={this.handleBackgroundPress}>
