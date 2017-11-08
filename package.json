@@ -1,7 +1,8 @@
 {
   "name": "@fugood/react-native-call-modal",
-  "version": "0.0.13",
-  "description": "This module let you use api call to open Modal and provide some basic panel most commonly.",
+  "version": "0.0.14",
+  "description":
+    "This module let you use api call to open Modal and provide some basic panel most commonly.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +13,7 @@
   },
   "keywords": ["react", "native", "react-native", "modal"],
   "author": "Pepper Yen <pepper.yen@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4"
   }
