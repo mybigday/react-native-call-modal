@@ -56,6 +56,10 @@ export const connectCallModal = function(WrappedComponent) {
     }
 
     show = async (property) => {
+      // If a modal is already open, run the onModalClose callback
+      if (_.isFunction(this.state.content)) {
+        this.state.onModalClose();
+      }
       return new Promise((resolve, reject) => {
         if(!_.isFunction(property.renderFunction)) {
           return reject(new Error('Require property: renderFunction'));
