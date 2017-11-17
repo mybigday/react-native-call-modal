@@ -209,6 +209,7 @@ class TextInputPrompt extends Component {
     return (
       <View style={this.styles.container}>
         <TextInput
+          secureTextEntry={this.props.type === 'password'}
           style={this.styles.input}
           onChangeText={this.handleChangeText}
           value={this.state.text}
@@ -322,8 +323,10 @@ export const prompt = async function(args) {
           let content;
           switch(input.inputType){
             case 'text':
+            case 'password':
               content = (
                 <TextInputPrompt
+                  type={input.inputType}
                   value={input.value}
                   onChangeValue={this.handleValueChange}
                 />
