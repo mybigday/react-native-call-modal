@@ -85,7 +85,7 @@ export const connectCallModal = function(WrappedComponent) {
             animationType={this.state.animationType}
             visible={this.state.visible}
             supportedOrientations={supportedOrientations}
-            onRequestClose={() => {}}
+            onRequestClose={this.handleCloseModal}
           >
             <TouchableWithoutFeedback onPress={this.handleBackgroundPress}>
               <View
