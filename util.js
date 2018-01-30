@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 
 const MODAL_WIDTH = Dimensions.get('window').width / 2;
@@ -229,7 +230,7 @@ class CheckBoxPrompt extends Component {
   render() {
     const Item = defaultItemRender;
     return (
-      <View>
+      <ScrollView contentContainerStyle={{maxHeight: MODAL_HEIGHT}}>
         {
           _.map(this.state.selectionList, ({ key, value, selected }, index) => (
             <Item
@@ -274,7 +275,7 @@ class CheckBoxPrompt extends Component {
             />
           ))
         }
-      </View>
+      </ScrollView>
     );
   }
 }
