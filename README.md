@@ -94,10 +94,11 @@ First argument can be a `string` or `object`, you can give an object to get more
 | okText                   | string | Text show on confirm button                                                       | "OK"     |
 | cancelText               | string | Text show on cancel button                                                        | "CANCEL" |
 | autoSubmit               | bool   | When select use to disable OK button                                              | false    |
-| inputType                | string | One of `text`, `select`, `checkbox`, `action`                                     | "text"   |
+| inputType                | string | One of `text`, `select`, `checkbox`, `action`, `question`                         | "text"   |
 | value (text)             | string | Default value of prompt, this must be a string value                              | ""       |
-| value (select, checkbox) | string | Default value of prompt, this must be an array of `{ key: , value: }`             | []       |
-| value (action)           | string | Default value of prompt, this must be an array of `{ key: , value: , onSelect: }` | []       |
+| value (select, checkbox) | array  | Default value of prompt, this must be an array of `{ key: , value: }`             | []       |
+| value (action)           | array  | Default value of prompt, this must be an array of `{ key: , value: , onSelect: }` | []       |
+| value (question)         | array  | Default value of prompt, this must be an array of `{ key: , value: , title: }`    | []       |
 
 ## Customize Modal Usage
 If you want customize all your modal and just want we open/close the modal for you. You can use `CallModal.show()` to get things done.
